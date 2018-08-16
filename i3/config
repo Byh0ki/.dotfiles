@@ -54,8 +54,9 @@ bindsym $mod+x exec keepassxc
 bindsym $mod+p exec pavucontrol -t 3
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/soundUp.sh
-bindsym XF86AudioLowerVolume exec --no-startup-id $psst pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update
+set $volMod 2
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/soundUp.sh $volMod
+bindsym XF86AudioLowerVolume exec --no-startup-id $psst pactl set-sink-volume @DEFAULT_SINK@ -$volMod% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls

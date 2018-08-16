@@ -8,6 +8,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/syntastic'
+Plug 'valloric/youcompleteme'
 
 " On demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } 

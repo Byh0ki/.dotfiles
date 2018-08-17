@@ -29,7 +29,7 @@ font pango:monospace 8
 
 ##################################################################################
 # Background
-exec --no-startup-id feh --bg-fill ~/Documents/Wallpaper/frost.png
+exec --no-startup-id feh --bg-fill ~/Documents/Wallpapers/frost.png
 
 #Startup
 exec --no-startup-id ckb-next

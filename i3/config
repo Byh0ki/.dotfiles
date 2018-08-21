@@ -27,7 +27,7 @@ font pango:monospace 8
 # font, it doesn’t scale on retina/hidpi displays.
 
 
-##################################################################################
+################################################################################
 # Background
 exec --no-startup-id feh --bg-fill ~/Documents/Wallpapers/frost.png
 
@@ -44,6 +44,7 @@ exec --no-startup-id nm-applet --no-agent
 
 #Windows specials rules
 for_window [window_role="pop-up"] floating enable
+for_window [class="(?i)keepassxc"] floating enable
 default_border normal
 default_floating_border normal
 
@@ -96,7 +97,7 @@ client.unfocused        $un_inside $un_border $un_text
 client.focused_inactive $un_inside $un_border $un_text
 client.urgent           $un_inside $un_border $un_text
 
-##################################################################################
+################################################################################
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position

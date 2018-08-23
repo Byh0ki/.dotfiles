@@ -33,6 +33,9 @@ set autoread
 "Always show current position
 set ruler
 
+"Set line number
+set number
+
 " --- search / regexp ---
 set gdefault                " RegExp global by default
 set magic                   " Enable extended regexes.

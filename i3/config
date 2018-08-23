@@ -81,21 +81,31 @@ bindsym Print exec "mkdir -p ~/Pictures/Screenshots/ && scrot '%Y%m%d_%Ho%M%S.pn
 
 # Colors
 
-#Focused
-set $inside #445a64
-set $border #445a64
-set $text   #ffffff
+set $base00 #151515
+set $base01 #202020
+set $base02 #303030
+set $base03 #505050
+set $base04 #B0B0B0
+set $base05 #D0D0D0
+set $base06 #E0E0E0
+set $base07 #FFFFFF
+set $base08 #FF0086
+set $base09 #FD8900
+set $base0A #ABA800
+set $base0B #00C918
+set $base0C #1FAAAA
+set $base0D #3777E6
+set $base0E #AD00A1
+set $base0F #CC6633
 
-#Unfocused
-set $un_inside #78909c
-set $un_border #78909c
-set $un_text   #F3F4F5
-
-#name                   #top       #border    #text
-client.focused          $inside    $border    $text
-client.unfocused        $un_inside $un_border $un_text
-client.focused_inactive $un_inside $un_border $un_text
-client.urgent           $un_inside $un_border $un_text
+# Basic color configuration using the Base16 variables for windows and borders.
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
 
 ################################################################################
 
@@ -241,16 +251,16 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
         #font pango:Hack, FontAwesome 10
-	colors
-  {
-    #name                #top       #border    #text
-    focused_workspace    $inside    $border    $text
-    active_workspace     $un_inside $un_border $un_text
-    inactive_workspace   $un_inside $un_border $un_text
-    urgent_workspace     $un_inside $un_border $un_text
-    separator            #969896
-    background           #1d1f21
-    statusline           #c5c8c6
+	colors {
+    		background $base00
+    		separator  $base01
+    		statusline $base04
 
-  }
+    		# State             Border  BG      Text
+    		focused_workspace   $base05 $base0D $base00
+    		active_workspace    $base05 $base03 $base00
+    		inactive_workspace  $base03 $base01 $base05
+    		urgent_workspace    $base08 $base08 $base00
+    		binding_mode        $base00 $base0A $base00
+	}
 }

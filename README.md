@@ -7,4 +7,5 @@ My linux config &amp; dotfiles
     - **wx** keybind for :x
 - I3
     - Color edit
-
+- Neofetch
+    - Customize the neofetch config file

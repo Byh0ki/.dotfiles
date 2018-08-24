@@ -26,7 +26,8 @@ font pango:monospace 8
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-
+################################################################################
+# Major custom settings
 ################################################################################
 # Background
 exec --no-startup-id feh --bg-fill ~/Documents/Wallpapers/frost.png
@@ -127,10 +128,10 @@ bindsym $mod+Shift+A kill
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
 #bindsym $mod+l focus up
-bindsym $mod+m focus right
+#bindsym $mod+m focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -139,10 +140,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+M move right
+#bindsym $mod+Shift+j move left
+#bindsym $mod+Shift+k move down
+#bindsym $mod+Shift+l move up
+#bindsym $mod+Shift+M move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -165,7 +166,7 @@ bindsym $mod+z layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Control+f floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -251,16 +252,16 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
         #font pango:Hack, FontAwesome 10
-	colors {
-    		background $base00
-    		separator  $base01
-    		statusline $base04
+      	colors {
+          		background $base00
+          		separator  $base01
+          		statusline $base04
 
-    		# State             Border  BG      Text
-    		focused_workspace   $base05 $base0D $base00
-    		active_workspace    $base05 $base03 $base00
-    		inactive_workspace  $base03 $base01 $base05
-    		urgent_workspace    $base08 $base08 $base00
-    		binding_mode        $base00 $base0A $base00
-	}
+          		# State             Border  BG      Text
+          		focused_workspace   $base05 $base0D $base00
+          		active_workspace    $base05 $base03 $base00
+          		inactive_workspace  $base03 $base01 $base05
+          		urgent_workspace    $base08 $base08 $base00
+          		binding_mode        $base00 $base0A $base00
+      	}
 }

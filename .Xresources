@@ -29,7 +29,7 @@ XTerm*rightScrollBar:     true
 XTerm*jumpScroll:         true
 XTerm*multiScroll:        true
 XTerm*toolBar:            false
-#Xterm*loginShell: 	  true
+!Xterm*loginShell: 	  true
 
 !UXTerm
 

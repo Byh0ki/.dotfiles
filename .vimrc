@@ -66,3 +66,6 @@ set textwidth=80
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
+
+"Not yet validated stuff / Test / Debug
+au BufNewFile * startinsert

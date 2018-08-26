@@ -51,9 +51,10 @@ for_window [class="(?i)keepassxc"] floating enable
 
 # Custom keybind
 bindsym $mod+c exec chromium
-bindsym $mod+l exec ~/.config/i3/i3lock/lock_vanilla.sh
+bindsym $mod+l exec --no-startup-id ~/.config/i3/i3lock/lock_vanilla.sh
 bindsym $mod+x exec keepassxc
 bindsym $mod+p exec pavucontrol -t 3
+bindsym $mod+Tab exec --no-startup-id ~/.config/i3/scripts/layout.sh
 
 # Pulse Audio controls
 set $volMod 2

@@ -46,8 +46,8 @@ exec --no-startup-id nm-applet --no-agent
 #Windows specials rules
 for_window [window_role="pop-up"] floating enable
 for_window [class="(?i)keepassxc"] floating enable
-#default_border normal
-#default_floating_border normal
+default_border normal
+default_floating_border normal
 
 # Custom keybind
 bindsym $mod+c exec chromium

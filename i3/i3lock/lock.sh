@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This script need i3lock-color to run properly
+
 rectangles=" "
 
 SR=$(xrandr --query | grep ' connected' | grep -o '[0-9][0-9]*x[0-9][0-9]*[^ ]*')

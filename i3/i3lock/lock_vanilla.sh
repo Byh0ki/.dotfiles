@@ -1,4 +1,7 @@
 #!/bin/sh
+
+# This script need scrot and ImageMagick to run properly
+
 icon="$HOME/.config/i3/i3lock/icons/lock.png"
 tmpbg='/tmp/screen.png'
 

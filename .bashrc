@@ -36,6 +36,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias color='$AFS_DIR/.confs/base16-shell/./colortest'
+#alias gdb='gdb -g'
 
 #Alias Git
 alias gc='git commit -v'

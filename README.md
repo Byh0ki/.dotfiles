@@ -12,7 +12,9 @@ My linux config &amp; dotfiles
     - Customize the neofetch config file
 - ZSH
     - Add custom/theme folder to the git repo
-    
+
+# Bugs
+- CPU temp is not always located at the path given in i3status/config
     
 # Notes
 If you want to use this repo as your config files, you might consider to edit a few things like :

@@ -50,8 +50,9 @@ default_border normal
 default_floating_border normal
 
 # Custom keybind
+set $lock ~/.config/i3/i3lock/lock_vanilla.sh
 bindsym $mod+c exec chromium
-bindsym $mod+l exec --no-startup-id ~/.config/i3/i3lock/lock_vanilla.sh
+bindsym $mod+l exec --no-startup-id $lock
 bindsym $mod+x exec keepassxc
 bindsym $mod+p exec pavucontrol -t 3
 bindsym $mod+Tab exec --no-startup-id ~/.config/i3/scripts/layout.sh
@@ -219,8 +220,31 @@ bindsym $mod+Shift+agrave move container to workspace $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
+# Usefull var for power management
+set $exit "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+set $poweroff "i3-nagbar -t warning -m 'You pressed the poweroff shortcut. Do you really want to poweroff ?' -b 'Poweroff' 'systemctl poweroff'"
+set $reboot "i3-nagbar -t warning -m 'You pressed the reboot shortcut. Do you really want to reboot ?' -b 'Reboot' 'systemctl reboot'"
+
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec $exit
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $lock, mode "default"
+    bindsym e exec --no-startup-id $exit, mode "default"
+    bindsym s exec --no-startup-id $lock && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $lock && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id $reboot, mode "default"
+    bindsym p exec --no-startup-id $poweroff, mode "default"
+
+    # back to normal: Enter or Escape or $mod+Pause
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+Pause mode "$default"
+}
+
+bindsym $mod+Pause mode "$mode_system"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

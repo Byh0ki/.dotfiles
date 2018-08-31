@@ -70,7 +70,7 @@ match OverLength /\%81v.\+/
 
 "Not yet validated stuff / Test / Debug
 au BufNewFile * startinsert
-
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 " Plugin Settings
 

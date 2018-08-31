@@ -45,6 +45,12 @@ exec --no-startup-id nm-applet --no-agent
 
 #Windows specials rules
 for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+
 for_window [class="(?i)keepassxc"] floating enable
 default_border normal
 default_floating_border normal
@@ -223,8 +229,8 @@ bindsym $mod+Shift+r restart
 
 # Usefull var for power management
 set $exit "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
-set $poweroff "i3-nagbar -t warning -m 'You pressed the poweroff shortcut. Do you really want to poweroff ?' -b 'Poweroff' 'systemctl poweroff'"
-set $reboot "i3-nagbar -t warning -m 'You pressed the reboot shortcut. Do you really want to reboot ?' -b 'Reboot' 'systemctl reboot'"
+set $poweroff "i3-nagbar -t warning -m 'You pressed the poweroff shortcut. Do you really want to poweroff ?' -b 'Yes, poweroff' 'systemctl poweroff -i'"
+set $reboot "i3-nagbar -t warning -m 'You pressed the reboot shortcut. Do you really want to reboot ?' -b 'Yes, reboot' 'systemctl reboot'"
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec $exit

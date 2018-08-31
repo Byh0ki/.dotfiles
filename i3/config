@@ -239,8 +239,8 @@ set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) re
 mode "$mode_system" {
     bindsym l exec --no-startup-id $lock, mode "default"
     bindsym e exec --no-startup-id $exit, mode "default"
-    bindsym s exec --no-startup-id $lock && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $lock && systemctl hibernate, mode "default"
+    bindsym s exec --no-startup-id $lock && sleep 1 && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $lock && sleep 1 && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id $reboot, mode "default"
     bindsym p exec --no-startup-id $poweroff, mode "default"
 

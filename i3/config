@@ -34,9 +34,9 @@ font pango:monospace 8
 exec --no-startup-id feh --bg-fill ~/Documents/Wallpapers/frost.png
 
 #Startup
-exec --no-startup-id ckb-next -b
-exec --no-startup-id owncloud
-exec --no-startup-id volctl
+exec --no-startup-id ckb-next -b &
+exec --no-startup-id owncloud &
+exec --no-startup-id volctl &
 exec --no-startup-id nm-applet --no-agent
 
 
@@ -254,7 +254,7 @@ mode "$mode_system" {
 bindsym $mod+Pause mode "$mode_system"
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
+mode "Resize" {
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
@@ -278,7 +278,7 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "Resize"
 
 # Start i3bar to display a workspace bar
 bar {

@@ -7,11 +7,14 @@ My linux config &amp; dotfiles
     - **wx** keybind for :x
 - I3
     - Color edit
-    - Create a mode for power management ([Idea](https://www.reddit.com/r/i3wm/comments/2yniv1/i3wm_and_power_management/))
+    - Create a mode for power management ([Idea](https://www.reddit.com/r/i3wm/comments/2yniv1/i3wm_and_power_management/)) ✓
 - Neofetch
     - Customize the neofetch config file
 - ZSH
-    - Add custom/theme folder to the git repo
+    - Add custom/theme folder to the git repo ✓
+- Misc
+    - add fonts in the repo
+    - create a bin folder for wallpapers
 
 # Bugs
 - CPU temp is not always located at the path given in i3status/config

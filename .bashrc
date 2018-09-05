@@ -24,7 +24,7 @@ export LANG=en_US.utf8
 export NNTPSERVER="news.epita.fr"
 
 export EDITOR=vim
-
+export TERM=xterm-256color
 export GOPATH=$AFS_DIR/TP/murrig_s/go
 
 #Alias
@@ -36,7 +36,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias color='$AFS_DIR/.confs/base16-shell/./colortest'
-#alias gdb='gdb -g'
+alias gdb='gdb -g'
 
 #Alias Git
 alias gc='git commit -v'
@@ -44,6 +44,7 @@ alias gcm='git commit -v -m'
 alias gcam='git commit -v -a -m'
 alias gss='git status -s'
 alias gp='git push'
+alias gccf='gcc -Wall -Wextra -Werror -pedantic -std=c99'
 
 #Prompt
 #PS1='[\u@\h \W]\$ '

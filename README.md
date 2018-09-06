@@ -15,7 +15,7 @@ My linux config &amp; dotfiles
 - Misc
     - add fonts in the repo
     - create a bin folder for wallpapers
-    - Send a notification for keyboard layout change (notify-send "Keyboard layout switched from 'fr' to 'us'")
+    - Send a notification for keyboard layout change (notify-send "Keyboard layout" "Change from 'us' to 'fr'" -i /path/to/icon.png)
 
 # Bugs
 - CPU temp is not always located at the path given in i3status/config

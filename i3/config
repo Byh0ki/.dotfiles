@@ -82,11 +82,14 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+
+set $screenshot /home/byh0ki/Pictures/Screenshots/
+
 # Print screen focused window
-bindsym $mod+Print exec "mkdir -p ~/Pictures/Screenshots/ && scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/Screenshots/'"
+bindsym $mod+Print exec mkdir -p $screenshot && scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f \\"$screenshot\\"'
 
 # Print screen entire view
-bindsym Print exec "mkdir -p ~/Pictures/Screenshots/ && scrot '%Y%m%d_%Ho%M%S.png' -e 'mv $f ~/Pictures/Screenshots/'"
+bindsym Print exec mkdir -p $screenshot && scrot '%Y%m%d_%H%M%S.png' -e 'mv $f \\"$screenshot\\"'
 
 # Colors
 

@@ -1,0 +1,9 @@
+#URxvt
+#URxvt*font: xft:DejaVu Sans Mono for Powerline:size=10
+URxvt*scrollBar: false
+URxvt*background: Black
+Urxvt*foreground: White
+URxvt*transparent: true
+URxvt*shading: 10
+#Urxvt*fading: 50
+URxvt*urgentOnBell: true

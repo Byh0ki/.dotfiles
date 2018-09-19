@@ -102,5 +102,7 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
+alias .dot='cd ~/Documents/.dotfiles'
+
 # Alias Git
 alias gccf='gcc -Wall -Wextra -Werror -pedantic -std=c99'

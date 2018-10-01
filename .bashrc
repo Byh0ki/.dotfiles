@@ -1,5 +1,5 @@
 [[ $- != *i* ]] && return
-#cddcd
+
 # Base16 Shell
 #BASE16_SHELL="$AFS_DIR/.confs/base16-shell/"
 BASE16_SHELL="$HOME/.config/base16-shell/"
@@ -29,14 +29,18 @@ export GOPATH=$AFS_DIR/TP/murrig_s/go
 
 #Alias
 alias ls='ls --color=auto'
-alias atom='~/$AFS_DIR/atom/./atom'
+alias atom='$AFS_DIR/Divers/bin/atom/./atom'
+alias .dot='cd $AFS_DIR/Divers/.dotfiles/'
+alias p='cd $AFS_DIR/p2021'
 alias la='ls -a'
-alias l='ls -la'
+alias l='ls -lah'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias md='mkdir -p'
 alias color='$AFS_DIR/.confs/base16-shell/./colortest'
-alias gdb='gdb -g'
+alias gdb='gdb -q'
 
 #Alias Git
 alias gc='git commit -v'
@@ -48,4 +52,4 @@ alias gccf='gcc -Wall -Wextra -Werror -pedantic -std=c99'
 
 #Prompt
 #PS1='[\u@\h \W]\$ '
-PS1='\[\033[01;93m\][\D{%d/%m/%y} \t]\[\033[01;34m\] \u\[\033[01;00m\]@\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+PS1='\[\033[01;93m\][\t]\[\033[01;34m\] \u\[\033[01;00m\]@\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '

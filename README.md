@@ -5,6 +5,7 @@ My linux config &amp; dotfiles
 - Vim
     - **ww** keybind for :update (nnoremap zz :update<cr>)
     - **wx** keybind for :x
+    - **ck** keybind for gg=G (auto indenting the current buffer)
 - I3
     - Color edit
     - Create a mode for power management ([Idea](https://www.reddit.com/r/i3wm/comments/2yniv1/i3wm_and_power_management/)) ✓
@@ -25,4 +26,3 @@ My linux config &amp; dotfiles
 If you want to use this repo as your config files, you might consider to edit a few things like :
 - ethernet or wifi name in i3status/config
 - your web browser name in i3/config
-

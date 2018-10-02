@@ -102,7 +102,9 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
+#Alias Path
 alias .dot='cd ~/Documents/.dotfiles'
+alias mri='cd ~/Documents/Dev/myreadiso/'
 
 # Alias Git
 alias gccf='gcc -Wall -Wextra -Werror -pedantic -std=c99'

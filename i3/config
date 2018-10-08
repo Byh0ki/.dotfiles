@@ -61,6 +61,7 @@ bindsym $mod+c exec chromium
 bindsym $mod+l exec --no-startup-id $lock
 bindsym $mod+x exec keepassxc
 bindsym $mod+p exec pavucontrol -t 3
+bindsym $mod+e exec nautilus
 bindsym $mod+Tab exec --no-startup-id ~/.config/i3/scripts/layout.sh
 
 # Pulse Audio controls
@@ -172,9 +173,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+z layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+Control+s layout stacking
+bindsym $mod+Control+z layout tabbed
+bindsym $mod+Control+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Control+f floating toggle

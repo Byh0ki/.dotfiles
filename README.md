@@ -17,6 +17,7 @@ My linux config &amp; dotfiles
     - add fonts in the repo
     - create a bin folder for wallpapers
     - Send a notification for keyboard layout change (notify-send "Keyboard layout" "Change from 'us' to 'fr'" -i /path/to/icon.png) ✓
+    - Change individuals file colors in bash (dircolors -p)
 
 # Bugs
 - CPU temp is not always located at the path given in i3status/config ✓

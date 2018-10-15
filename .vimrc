@@ -166,6 +166,7 @@ let g:rainbow_active = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 au BufNewFile * startinsert
+autocmd BufWritePre * :%s/\s\+$//e
 " Alternative for match, need to figure out how to make it works properly
 "au BufWinEnter * let w:m2=matchadd('ExtraWhitespace', "/\s\+\%#\@<!$/")
 "au VimEnter * let w:m1=matchadd("OverLength", "/\%79v.\+/")

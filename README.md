@@ -3,9 +3,9 @@ My linux config &amp; dotfiles
 
 # Ideas for future changes
 - Vim
-    - **ww** keybind for :update (nnoremap zz :update<cr>)
-    - **wx** keybind for :x
-    - **ck** keybind for gg=G (auto indenting the current buffer)
+    - **ww** keybind for :update (nnoremap ww :update<cr>) ✓
+    - **wx** keybind for :x ✓
+    - **ck** keybind for gg=G`` (auto indenting the current buffer) ✓
 - I3
     - Color edit
     - Create a mode for power management ([Idea](https://www.reddit.com/r/i3wm/comments/2yniv1/i3wm_and_power_management/)) ✓
@@ -16,10 +16,10 @@ My linux config &amp; dotfiles
 - Misc
     - add fonts in the repo
     - create a bin folder for wallpapers
-    - Send a notification for keyboard layout change (notify-send "Keyboard layout" "Change from 'us' to 'fr'" -i /path/to/icon.png)
+    - Send a notification for keyboard layout change (notify-send "Keyboard layout" "Change from 'us' to 'fr'" -i /path/to/icon.png) ✓
 
 # Bugs
-- CPU temp is not always located at the path given in i3status/config
+- CPU temp is not always located at the path given in i3status/config ✓
 - my i3 PM mode is using i3-nagbar but i'm not sure i'm using it correctly
 
 # Notes

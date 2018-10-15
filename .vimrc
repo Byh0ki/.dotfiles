@@ -114,6 +114,16 @@ syntax on
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+" Keybinds
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Auto indent current buffer
+noremap ck gg=G``
+noremap kc gg=G''
+" Saving and save + exit
+noremap ww :update<CR>
+noremap xx :x<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin mappings and options
 """"""""""""""""""""""""""""""""""""""""""""""""""
 

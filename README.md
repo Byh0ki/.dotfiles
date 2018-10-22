@@ -21,7 +21,8 @@ My linux config &amp; dotfiles
 
 # Bugs
 - CPU temp is not always located at the path given in i3status/config ✓
-- my i3 PM mode is using i3-nagbar but i'm not sure i'm using it correctly
+- my i3 PM mode is using i3-nagbar but i'm not sure i'm using it correctly 
+    - Hint : Use an executable file containing the cmd
 
 # Notes
 If you want to use this repo as your config files, you might consider to edit a few things like :

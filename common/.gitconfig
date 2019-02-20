@@ -1,0 +1,9 @@
+[user]
+	name = Sevan Murriguian
+	email = murrig_s@epita.fr
+[color]
+	ui = true
+[push]
+	default = simple
+[pull]
+        rebase = true

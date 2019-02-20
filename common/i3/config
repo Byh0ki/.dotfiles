@@ -34,7 +34,7 @@ font pango:monospace 8
 exec --no-startup-id feh --bg-fill ~/Documents/Wallpapers/frost.png
 
 #Startup
-exec --no-startup-id ckb-next -b &
+#exec --no-startup-id ckb-next -b &
 exec --no-startup-id owncloud &
 exec --no-startup-id volctl &
 exec --no-startup-id nm-applet --no-agent
@@ -56,17 +56,17 @@ default_border normal
 default_floating_border normal
 
 # Custom keybind
-set $lock ~/.config/i3/i3lock/lock_vanilla.sh
+set $lock ~/.config/i3utils/i3lock/lock_vanilla.sh
 bindsym $mod+c exec chromium
 bindsym $mod+l exec --no-startup-id $lock
 bindsym $mod+x exec keepassxc
 bindsym $mod+p exec pavucontrol -t 3
 bindsym $mod+e exec nautilus
-bindsym $mod+Tab exec --no-startup-id ~/.config/i3/scripts/layout.sh
+bindsym $mod+Tab exec --no-startup-id ~/.config/i3utils/scripts/layout.sh
 
 # Pulse Audio controls
 set $volMod 2
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/soundUp.sh $volMod
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3utils/scripts/soundUp.sh $volMod
 bindsym XF86AudioLowerVolume exec --no-startup-id $psst pactl set-sink-volume @DEFAULT_SINK@ -$volMod% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
@@ -87,10 +87,10 @@ bindsym XF86AudioPrev exec playerctl previous
 set $screenpath /home/byh0ki/Pictures/Screenshots/
 
 # Print screen focused window
-bindsym $mod+Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh -u $screenpath
+bindsym $mod+Print exec --no-startup-id ~/.config/i3utils/scripts/screenshot.sh -u $screenpath
 
 # Print screen entire view
-bindsym Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh -f $screenpath
+bindsym Print exec --no-startup-id ~/.config/i3utils/scripts/screenshot.sh -f $screenpath
 
 # Colors
 

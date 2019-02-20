@@ -57,7 +57,7 @@ create_symlinks()
 
 while getopts h:b:e:d:s: option; do
     case "${option}" in
-        h) echo $help_msg; exit;;
+        h) echo -e $help_msg; exit;;
         b) bak=${OPTARG};;
         e) extra=${OPTARG};;
         d) dst=${OPTARG};;

@@ -4,6 +4,8 @@ URxvt*scrollBar: false
 URxvt*background: Black
 URxvt*foreground: White
 URxvt*transparent: true
-URxvt*shading: 10
+urxvt*tintColor: #245b8f
+urxvt*blurRadius: 20
+URxvt*shading: 50
 #Urxvt*fading: 50
 URxvt*urgentOnBell: true

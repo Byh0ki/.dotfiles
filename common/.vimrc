@@ -49,9 +49,21 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE gui
 set cursorline
 highlight clear CursorLine
 
+" For some stupid reason, vim requires the term to begin with "xterm", so the
+" automatically detected "rxvt-unicode-256color" doesn't work.
+set term=xterm-256color
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""
+
+" Install vim-plug if needed
+if empty(glob("~/.vim/autoload/plug.vim"))
+    silent !mkdir -p ~/.vim/plugged
+    silent !mkdir -p ~/.vim/autoload
+    " Download the actual plugin manager
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+endif
 
 " Vim-plug
 call plug#begin('~/.vim/plugged')
@@ -68,6 +80,7 @@ Plug 'jiangmiao/auto-pairs'
 "Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'luochen1990/rainbow'
+Plug 'vim-scripts/DoxygenToolkit.vim'
 "Plug 'scrooloose/nerdcommenter'
 "Plug 'majutsushi/tagbar'
 
@@ -127,6 +140,9 @@ highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 " Undo file
 """"""""""""""""""""""""""""""""""""""""""""""""""
 set undofile
+set undolevels=1000     " 1000 by default
+set undoreload=10000    " 10000 by default"
+silent !mkdir -p ~/.vim/undodir
 set undodir=~/.vim/undodir
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -134,13 +150,13 @@ set undodir=~/.vim/undodir
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 " Auto indent current buffer
-noremap ck gg=G``
-noremap kc gg=G''
+noremap <leader>ck gg=G``
+noremap <leader>kc gg=G''
 " Saving and save + exit
-noremap ww :update<CR>
-noremap xx :x<CR>
+noremap <leader>ww :update<CR>
+noremap <leader>zx :x<CR>
 " Toggle line number
-noremap nu :set invnumber<CR>
+noremap <leader>nu :set invnumber<CR>
 " Toggle syntastic
 noremap <F10> :SyntasticToggleMode<CR>
 
@@ -154,6 +170,8 @@ set statusline+=%*
 
 let g:syntastic_c_checkers = ['gcc']
 let g:systastic_c_compiler_options = '-Wall -Werror -Wextra -pedantic -std=c99'
+let g:syntastic_cpp_compiler = 'g++'
+let g:syntastic_cpp_compiler_options = '-Wall -Wextra -Wextra -pedantic -std=c++17'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1

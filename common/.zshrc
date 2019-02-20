@@ -100,6 +100,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 export TERM=rxvt
+export EDITOR=vim
 
 # Aliases
 alias zshconfig="vim ~/.zshrc"

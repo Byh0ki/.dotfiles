@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Variables declarations
 
@@ -20,7 +20,7 @@ backup()
     # $2 : filename
     # $3 : backup path
     path="$1/$2"
-    if [ -f $path ]; then                               # File exist
+    if [[ -f $path || -d $path ]]; then                 # File or dir already exist
         if [ -L $path ]; then                           # Is a symlink
             rm $path
         else                                            # Is a regular file
@@ -71,6 +71,7 @@ if [ ! -z $dst ]; then
     create_symlinks "$dst" "$full_dot" "$dst/$bak" strip_dot "$extra"
 else
     mkdir -p "$HOME/$bak"
+    mkdir -p "$HOME/.config"
     create_symlinks "$HOME" "$dot_list_home" "$HOME/$bak" strip_dot "$extra"
     create_symlinks "$HOME/.config" "$dot_list_conf" "$HOME/$bak" strip_dot "$extra"
 fi

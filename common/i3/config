@@ -31,7 +31,7 @@ font pango:monospace 8
 # Major custom settings
 ################################################################################
 # Background
-exec --no-startup-id feh --bg-fill ~/Documents/Wallpapers/frost.png
+exec --no-startup-id feh --bg-fill ~/.config/wallpapers/frost.png
 
 #Startup
 #exec --no-startup-id ckb-next -b &

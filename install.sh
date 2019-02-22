@@ -55,6 +55,12 @@ create_symlinks()
 
 # Script
 
+# If the repo is not in $HOME/.config/.dotfiles
+# You can uncomment theses lines to edit the .env file
+# if [ -f $PWD/common/.env ]; then
+#     sed -i 's#DOT_PATH=.*#DOT_PATH='"$PWD"'#g' $PWD/common/.env
+# fi
+
 while getopts h:b:e:d:s: option; do
     case "${option}" in
         h) echo -e $help_msg; exit;;

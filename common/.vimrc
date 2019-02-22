@@ -47,6 +47,7 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE gui
 
 " Color for current cursor line number
 set cursorline
+"highlight CursorLine term=NONE cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
 highlight clear CursorLine
 
 " For some stupid reason, vim requires the term to begin with "xterm", so the

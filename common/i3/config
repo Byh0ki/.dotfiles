@@ -34,7 +34,6 @@ font pango:monospace 8
 exec --no-startup-id feh --bg-fill ~/.config/wallpapers/frost.png
 
 #Startup
-#exec --no-startup-id ckb-next -b &
 exec --no-startup-id owncloud &
 exec --no-startup-id volctl &
 exec --no-startup-id nm-applet --no-agent

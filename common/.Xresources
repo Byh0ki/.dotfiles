@@ -4,53 +4,67 @@
 
 ! Cursor
 
-Xcursor.size: 16
+! Xcursor.theme:
+Xcursor.size:               16
 
-!XTerm
+! Font
 
-XTerm*background:         black
-XTerm*foreground:         white
-XTerm*cursorColor:        white
-!XTerm*VT100.geometry:     80x25
+Xft.dpi:                    96
+Xft.antialias:              true
+Xft.hinting:                true
+Xft.rgba:                   rgb
+Xft.autohint:               false
+Xft.hintstyle:              hintslight
+Xft.lcdfilter:              lcddefault
 
+! XTerm
+
+XTerm*background:           black
+XTerm*foreground:           white
+XTerm*cursorColor:          white
 ! XTerm*faceName:           Terminus:style=Regular:size=10
-! XTerm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
+! XTerm*font:               -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 
-XTerm*font:               terminus-10
-XTerm.termName: 	  xterm-256color
-XTerm*dynamicColors:      true
-XTerm*utf8:               2
-XTerm*eightBitInput:      true
-XTerm*saveLines:          1024
-XTerm*scrollKey:          true
-XTerm*scrollTtyOutput:    false
-XTerm*scrollBar:          true
-XTerm*rightScrollBar:     true
-XTerm*jumpScroll:         true
-XTerm*multiScroll:        true
-XTerm*toolBar:            false
-!Xterm*loginShell: 	  true
+XTerm*font:                 terminus-10
+XTerm.termName: 	    xterm-256color
+XTerm*dynamicColors:        true
+XTerm*utf8:                 2
+XTerm*eightBitInput:        true
+XTerm*saveLines:            1024
+XTerm*scrollKey:            true
+XTerm*scrollTtyOutput:      false
+XTerm*scrollBar:            false
+XTerm*rightScrollBar:       true
+XTerm*jumpScroll:           true
+XTerm*multiScroll:          true
+XTerm*toolBar:              false
+XTerm*selectToClipboard:    true
+!Xterm*loginShell: 	    true
 
-!UXTerm
+! Urxvt
 
-UXTerm*background:         black
-UXTerm*foreground:         white
-UXTerm*cursorColor:        white
-!UXTerm*VT100.geometry:     90x30
+! URxvt*font:                xft:DejaVu Sans Mono for Powerline:size=10
+! URxvt.bold.font:          -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
 
-! UXTerm*faceName:           Terminus:style=Regular:size=10
-! UXTerm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
+! True transparency
+URxvt.depth:                32
+URxvt.background:           [100]#000000
+URxvt*scrollBar:            false
+! URxvt*mouseWheelScrollPage: false
+URxvt*cursorBlink:          false
+URxvt*background:           black
+URxvt*foreground:           white
+URxvt*saveLines:            5000
 
-UXTerm*font:               terminus-10
-UXTerm.termName: 	   xterm-256color
-UXTerm*dynamicColors:      true
-UXTerm*utf8:               2
-UXTerm*eightBitInput:      true
-UXTerm*saveLines:          1024
-UXTerm*scrollKey:          true
-UXTerm*scrollTtyOutput:    false
-UXTerm*scrollBar:          true
-UXTerm*rightScrollBar:     true
-UXTerm*jumpScroll:         true
-UXTerm*multiScroll:        true
-UXTerm*toolBar:            false
+! for 'fake' transparency (without Compton) uncomment the following lines
+! URxvt*inheritPixmap:      true
+! URxvt*transparent:        true
+! URxvt*shading:            50
+! URxvt*tintColor:          #245b8f
+! URxvt*blurRadius:         20
+! URxvt*fading:             50
+
+! Normal copy-paste keybindings without perls
+! URxvt.iso14755:                   false
+! URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
+! URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard

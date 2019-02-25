@@ -33,6 +33,7 @@ If you want to use this repo as your config files, you might consider to edit a 
     - Change individuals file colors in bash (dircolors -p)
 
 # Bugs
+- install.sh is broken for the extra install
 
 # Latest changes & fixes
 - Vim

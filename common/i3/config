@@ -45,8 +45,8 @@ set $ws9 "9"
 set $ws10 "10"
 
 # Gaps
-set $gaps_outer 5
-set $gaps_inner 5
+set $gaps_inner 10
+set $gaps_outer -2
 
 # Modes
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown

@@ -1,4 +1,4 @@
-!
+        !
 ! Comments begin with a "!" character.
 !
 
@@ -22,101 +22,101 @@
 ! Cursor
 
 ! Xcursor.theme:
-Xcursor.size:               16
+Xcursor.size:                       16
 
 ! Font
 
-Xft.dpi:                    96
-Xft.antialias:              true
-Xft.hinting:                true
-Xft.rgba:                   rgb
-Xft.autohint:               false
-Xft.hintstyle:              hintslight
-Xft.lcdfilter:              lcddefault
+Xft.dpi:                            96
+Xft.antialias:                      true
+Xft.hinting:                        true
+Xft.rgba:                           rgb
+Xft.autohint:                       false
+Xft.hintstyle:                      hintslight
+Xft.lcdfilter:                      lcddefault
 
 ! Colors based on Base16 Harmonic Dark color scheme
 
 !! black dark/light
-*color0:                    base00
-*color1:                    base08
+*color00:                           base00
+*color08:                           base08
 !! red dark/light
-*color2:                    base0B
-*color3:                    base0A
+*color01:                           base0B
+*color09:                           base0A
 !! green dark/light
-*color4:                    base0D
-*color5:                    base0E
+*color02:                           base0D
+*color10:                           base0E
 !! yellow dark/light
-*color6:                    base0C
-*color7:                    base05
+*color03:                           base0C
+*color11:                           base05
 !! blue dark/light
-*color8:                    base03
-*color9:                    base08
+*color04:                           base03
+*color12:                           base08
 !! magenta dark/light
-*color10:                   base0B
-*color11:                   base0A
+*color05:                           base0B
+*color13:                           base0A
 !! cyan dark/light
-*color12:                   base0D
-*color13:                   base0E
+*color06:                           base0D
+*color14:                           base0E
 !! white dark/light
-*color14:                   base0C
-*color15:                   base07
+*color07:                           base0C
+*color15:                           base07
 
 ! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
 ! use 'shell' template to set these if necessary
-*color16:      base09
-*color17:      base0F
-*color18:      base01
-*color19:      base02
-*color20:      base04
-*color21:      base06
+*color16:                           base09
+*color17:                           base0F
+*color18:                           base01
+*color19:                           base02
+*color20:                           base04
+*color21:                           base06
 
 ! XTerm
 
-XTerm*background:           base00
-XTerm*foreground:           base05
-XTerm*cursorColor:          base05
-! XTerm*faceName:           Terminus:style=Regular:size=10
-! XTerm*font:               -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
+XTerm*background:                   base00
+XTerm*foreground:                   base05
+XTerm*cursorColor:                  base05
+! XTerm*faceName:                   Terminus:style=Regular:size=10
+! XTerm*font:                       -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 
-XTerm*font:                 terminus-10
-XTerm.termName: 	    xterm-256color
-XTerm*dynamicColors:        true
-XTerm*utf8:                 2
-XTerm*eightBitInput:        true
-XTerm*saveLines:            1024
-XTerm*scrollKey:            true
-XTerm*scrollTtyOutput:      false
-XTerm*scrollBar:            false
-XTerm*rightScrollBar:       true
-XTerm*jumpScroll:           true
-XTerm*multiScroll:          true
-XTerm*toolBar:              false
-XTerm*selectToClipboard:    true
-!Xterm*loginShell: 	    true
+XTerm*font:                         terminus-10
+XTerm.termName: 	                  xterm-256color
+XTerm*dynamicColors:                true
+XTerm*utf8:                         2
+XTerm*eightBitInput:                true
+XTerm*saveLines:                    1024
+XTerm*scrollKey:                    true
+XTerm*scrollTtyOutput:              false
+XTerm*scrollBar:                    false
+XTerm*rightScrollBar:               true
+XTerm*jumpScroll:                   true
+XTerm*multiScroll:                  true
+XTerm*toolBar:                      false
+XTerm*selectToClipboard:            true
+! Xterm*loginShell: 	            true
 
 ! Urxvt
 
-! URxvt*font:                xft:DejaVu Sans Mono for Powerline:size=10
-! URxvt.bold.font:          -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
+! URxvt*font:                       xft:DejaVu Sans Mono for Powerline:size=10
+! URxvt.bold.font:                  -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
 
 ! True transparency
-URxvt.depth:                32
-URxvt.background:           [95]base00
-URxvt*scrollBar:            false
+URxvt.depth:                        32
+URxvt.background:                   [95]base00
+URxvt*scrollBar:                    false
 ! URxvt*mouseWheelScrollPage: false
-URxvt*cursorBlink:          false
-!URxvt*background:          base00
-URxvt*foreground:           base05
-URxvt*saveLines:            5000
-URxvt*urgentOnBell:         true
+URxvt*cursorBlink:                  false
+!URxvt*background:                  base00
+URxvt*foreground:                   base05
+URxvt*saveLines:                    5000
+URxvt*urgentOnBell:                 true
 
 ! for 'fake' transparency (without Compton) uncomment the following lines
-! URxvt*inheritPixmap:      true
-! URxvt*transparent:        true
-! URxvt*shading:            50
-! URxvt*tintColor:          #245b8f
-! URxvt*blurRadius:         20
-! URxvt*fading:             50
+! URxvt*inheritPixmap:              true
+! URxvt*transparent:                true
+! URxvt*shading:                    50
+! URxvt*tintColor:                  #245b8f
+! URxvt*blurRadius:                 20
+! URxvt*fading:                     50
 
 ! Normal copy-paste keybindings without perls
 ! URxvt.iso14755:                   false

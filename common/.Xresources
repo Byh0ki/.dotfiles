@@ -1,4 +1,4 @@
-        !
+!
 ! Comments begin with a "!" character.
 !
 
@@ -79,7 +79,7 @@ XTerm*cursorColor:                  base05
 ! XTerm*font:                       -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 
 XTerm*font:                         terminus-10
-XTerm.termName: 	                  xterm-256color
+XTerm.termName: 	            xterm-256color
 XTerm*dynamicColors:                true
 XTerm*utf8:                         2
 XTerm*eightBitInput:                true
@@ -103,7 +103,7 @@ XTerm*selectToClipboard:            true
 URxvt.depth:                        32
 URxvt.background:                   [95]base00
 URxvt*scrollBar:                    false
-! URxvt*mouseWheelScrollPage: false
+! URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                  false
 !URxvt*background:                  base00
 URxvt*foreground:                   base05

@@ -61,7 +61,7 @@ create_symlinks()
 #     sed -i 's#DOT_PATH=.*#DOT_PATH='"$PWD"'#g' $PWD/common/.env
 # fi
 
-while getopts h:b:e:d:s: option; do
+while getopts h:b:e:d:s option; do
     case "${option}" in
         h) echo -e $help_msg; exit;;
         b) bak=${OPTARG};;
@@ -74,10 +74,10 @@ done
 if [ ! -z $dst ]; then
     mkdir -p "$dst/$bak"
     full_dot="$dot_list_home $dot_list_conf"
-    create_symlinks "$dst" "$full_dot" "$dst/$bak" strip_dot "$extra"
+    create_symlinks "$dst" "$full_dot" "$dst/$bak" $strip_dot "$extra"
 else
     mkdir -p "$HOME/$bak"
     mkdir -p "$HOME/.config"
-    create_symlinks "$HOME" "$dot_list_home" "$HOME/$bak" strip_dot "$extra"
-    create_symlinks "$HOME/.config" "$dot_list_conf" "$HOME/$bak" strip_dot "$extra"
+    create_symlinks "$HOME" "$dot_list_home" "$HOME/$bak" $strip_dot "$extra"
+    create_symlinks "$HOME/.config" "$dot_list_conf" "$HOME/$bak" $strip_dot "$extra"
 fi

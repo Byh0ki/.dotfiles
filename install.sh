@@ -3,7 +3,7 @@
 # Variables declarations
 
 dot_list_home=".env .aliases .bashrc .gitconfig .gitignore .gtkrc-2.0 .vimrc .Xdefaults .xinitrc .Xresources .zshCustom .zshrc"
-dot_list_conf="dunst gtk-3.0 i3 i3utils i3status neofetch wallpapers"
+dot_list_conf="dunst compton.conf gtk-3.0 i3 i3utils i3status neofetch wallpapers"
 bak=".bak"
 strip_dot=false
 help_msg="./bin [-h] display this help message\n

@@ -387,6 +387,6 @@ exec --no-startup-id owncloud &
 exec --no-startup-id nm-applet --no-agent
 exec --no-startup-id compton -b
 exec --no-startup-id slack &
-exec --no-startup-id xautolock -time 10 -locker $sys lock
+exec --no-startup-id xautolock -time 10 -locker $sys &
 exec --no-startup-id redshift-gtk &
 exec --no-startup-id dunst &

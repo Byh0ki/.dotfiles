@@ -2,6 +2,23 @@
 ! Comments begin with a "!" character.
 !
 
+#define base00 #0b1c2c
+#define base01 #223b54
+#define base02 #405c79
+#define base03 #627e99
+#define base04 #aabcce
+#define base05 #cbd6e2
+#define base06 #e5ebf1
+#define base07 #f7f9fb
+#define base08 #bf8b56
+#define base09 #bfbf56
+#define base0A #8bbf56
+#define base0B #56bf8b
+#define base0C #568bbf
+#define base0D #8b56bf
+#define base0E #bf568b
+#define base0F #bf5656
+
 ! Cursor
 
 ! Xcursor.theme:
@@ -17,11 +34,47 @@ Xft.autohint:               false
 Xft.hintstyle:              hintslight
 Xft.lcdfilter:              lcddefault
 
+! Colors based on Base16 Harmonic Dark color scheme
+
+!! black dark/light
+*color0:       base00
+*color1:       base08
+!! red dark/light
+*color2:       base0B
+*color3:       base0A
+!! green dark/light
+*color4:       base0D
+*color5:       base0E
+!! yellow dark/light
+*color6:       base0C
+*color7:       base05
+!! blue dark/light
+*color8:       base03
+*color9:       base08
+!! magenta dark/light
+*color10:      base0B
+*color11:      base0A
+!! cyan dark/light
+*color12:      base0D
+*color13:      base0E
+!! white dark/light
+*color14:      base0C
+*color15:      base07
+
+! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+! use 'shell' template to set these if necessary
+*color16:      base09
+*color17:      base0F
+*color18:      base01
+*color19:      base02
+*color20:      base04
+*color21:      base06
+
 ! XTerm
 
-XTerm*background:           black
-XTerm*foreground:           white
-XTerm*cursorColor:          white
+XTerm*background:           base00
+XTerm*foreground:           base05
+XTerm*cursorColor:          base05
 ! XTerm*faceName:           Terminus:style=Regular:size=10
 ! XTerm*font:               -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 
@@ -48,12 +101,12 @@ XTerm*selectToClipboard:    true
 
 ! True transparency
 URxvt.depth:                32
-URxvt.background:           [95]#0b1c2c
+URxvt.background:           [95]base00
 URxvt*scrollBar:            false
 ! URxvt*mouseWheelScrollPage: false
 URxvt*cursorBlink:          false
-URxvt*background:           black
-URxvt*foreground:           white
+!URxvt*background:          base00
+URxvt*foreground:           base05
 URxvt*saveLines:            5000
 
 ! for 'fake' transparency (without Compton) uncomment the following lines

@@ -37,29 +37,29 @@ Xft.lcdfilter:              lcddefault
 ! Colors based on Base16 Harmonic Dark color scheme
 
 !! black dark/light
-*color0:       base00
-*color1:       base08
+*color0:                    base00
+*color1:                    base08
 !! red dark/light
-*color2:       base0B
-*color3:       base0A
+*color2:                    base0B
+*color3:                    base0A
 !! green dark/light
-*color4:       base0D
-*color5:       base0E
+*color4:                    base0D
+*color5:                    base0E
 !! yellow dark/light
-*color6:       base0C
-*color7:       base05
+*color6:                    base0C
+*color7:                    base05
 !! blue dark/light
-*color8:       base03
-*color9:       base08
+*color8:                    base03
+*color9:                    base08
 !! magenta dark/light
-*color10:      base0B
-*color11:      base0A
+*color10:                   base0B
+*color11:                   base0A
 !! cyan dark/light
-*color12:      base0D
-*color13:      base0E
+*color12:                   base0D
+*color13:                   base0E
 !! white dark/light
-*color14:      base0C
-*color15:      base07
+*color14:                   base0C
+*color15:                   base07
 
 ! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
 ! use 'shell' template to set these if necessary
@@ -108,6 +108,7 @@ URxvt*cursorBlink:          false
 !URxvt*background:          base00
 URxvt*foreground:           base05
 URxvt*saveLines:            5000
+URxvt*urgentOnBell:         true
 
 ! for 'fake' transparency (without Compton) uncomment the following lines
 ! URxvt*inheritPixmap:      true

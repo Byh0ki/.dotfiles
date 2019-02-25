@@ -12,7 +12,7 @@ set $mod Mod4
 set $wallpaper ~/.config/wallpapers/frost.png
 set $sys ~/.config/i3utils/scripts/i3sys.sh
 set $volMod 2
-set $screenpath /home/byh0ki/Pictures/Screenshots/
+set $screenpath ~/Pictures/Screenshots/
 
 # Colors
 set $base00 #151515

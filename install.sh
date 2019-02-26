@@ -73,8 +73,9 @@ done
 
 if [ ! -z "$dst" ]; then
     mkdir -p "$dst/$bak"
-    full_dot="$dot_list_home $dot_list_conf"
-    create_symlinks "$dst" "$full_dot" "$dst/$bak" $strip_dot "$extra"
+    mkdir -p "$dst/.config"
+    create_symlinks "$dst" "$dot_list_home" "$dst/$bak" $strip_dot "$extra"
+    create_symlinks "$dst/.config" "$dot_list_conf" "$dst/$bak" $strip_dot "$extra"
 else
     mkdir -p "$HOME/$bak"
     mkdir -p "$HOME/.config"

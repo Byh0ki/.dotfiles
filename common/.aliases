@@ -10,6 +10,8 @@ alias md='mkdir -p'
 alias color='$HOME/.config/base16-shell/./colortest'
 alias gdb='gdb -q'
 
+alias :q='exit'
+
 # Alias Path
 alias .dot='cd $DOT_PATH'
 alias lbin='cd ~/.local/bin'

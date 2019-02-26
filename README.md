@@ -22,6 +22,10 @@ If you want to use this repo as your config files, you might consider to edit a 
 - I3
     - Color edit
     - Gaps tuning
+- i3status
+    - Tune i3bar
+        - network
+        - disk space
 - Neofetch
     - Customize the neofetch config file
 - Dunst
@@ -29,6 +33,7 @@ If you want to use this repo as your config files, you might consider to edit a 
 - ZSH
     - Find usefull plugins
 - Misc
+    - add new wallpapers
     - add fonts in the repo
     - Change individuals file colors in bash (dircolors -p)
 

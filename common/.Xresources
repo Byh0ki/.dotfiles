@@ -37,28 +37,28 @@ Xft.lcdfilter:                      lcddefault
 ! Colors based on Base16 Harmonic Dark color scheme
 
 !! black dark/light
-*color00:                           base00
-*color08:                           base08
+*color0:                            base00
+*color8:                            base03
 !! red dark/light
-*color01:                           base0B
-*color09:                           base0A
+*color1:                            base08
+*color9:                            base08
 !! green dark/light
-*color02:                           base0D
-*color10:                           base0E
+*color2:                            base0B
+*color10:                           base0B
 !! yellow dark/light
-*color03:                           base0C
-*color11:                           base05
+*color3:                            base0A
+*color11:                           base0A
 !! blue dark/light
-*color04:                           base03
-*color12:                           base08
+*color4:                            base0D
+*color12:                           base0D
 !! magenta dark/light
-*color05:                           base0B
-*color13:                           base0A
+*color5:                            base0E
+*color13:                           base0E
 !! cyan dark/light
-*color06:                           base0D
-*color14:                           base0E
+*color6:                            base0C
+*color14:                           base0C
 !! white dark/light
-*color07:                           base0C
+*color7:                            base05
 *color15:                           base07
 
 ! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),

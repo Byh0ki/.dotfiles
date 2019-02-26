@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # This script need scrot and ImageMagick to run properly
 

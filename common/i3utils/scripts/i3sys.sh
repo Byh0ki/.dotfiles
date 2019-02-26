@@ -1,15 +1,41 @@
 #!/usr/bin/env bash
 
-lock()
+lock_script="$HOME/.config/i3utils/i3lock/lock_vanilla.sh"
+
+pause()
 {
     killall -SIGUSR1 dunst # pause
     killall compton
-    $HOME/.config/i3utils/i3lock/lock_vanilla.sh
-    compton -b
-    killall -SIGUSR2 dunst # resume
 }
 
-if [ -z $1 ]; then
+resume()
+{
+    killall -SIGUSR2 dunst # resume
+    compton -b
+}
+
+lock()
+{
+    pause
+    $lock_script
+    resume
+}
+
+sleeep()
+{
+    pause
+    $lock_script
+    sleep 1
+    if [ "$1" = "hibernate" ]; then
+        systemctl hibernate
+    else
+        systemctl suspend
+    fi
+    sleep 1
+    resume
+}
+
+if [ -z "$1" ]; then
     lock
 else
     case "$1" in
@@ -20,10 +46,10 @@ else
             i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'
             ;;
         suspend)
-            lock && sleep 1 && systemctl suspend
+            sleeep
             ;;
         hibernate)
-            lock && sleep 1 && systemctl hibernate
+            sleeep hibernate
             ;;
         reboot)
             i3-nagbar -t warning -m 'You pressed the reboot shortcut. Do you really want to reboot ?' -b 'Yes, reboot' 'systemctl reboot'

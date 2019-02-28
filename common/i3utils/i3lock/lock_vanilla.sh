@@ -10,5 +10,5 @@ tmpbg='/tmp/screen.png'
 scrot "$tmpbg"
 convert "$tmpbg" -scale 5% -scale 2000% "$tmpbg"
 convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
-i3lock -e -i "$tmpbg"
+i3lock -n -e -i "$tmpbg"
 rm "$tmpbg"

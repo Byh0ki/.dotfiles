@@ -133,7 +133,7 @@ bindsym $mod+n border normal
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec SHELL=/home/murrig_s/.local/bin/zsh i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+Q kill

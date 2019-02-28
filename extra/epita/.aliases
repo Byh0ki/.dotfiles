@@ -11,7 +11,7 @@ alias color='$HOME/.config/base16-shell/./colortest'
 alias gdb='gdb -q'
 
 # Alias Path
-alias .dot='cd $AFS_DIR/Divers/.dotfiles/'
+alias .dot='cd ~/.config/.dotfiles/'
 alias lbin='cd ~/.local/bin'
 alias p='cd $AFS_DIR/Dev/p2021'
 alias alg='cd $AFS_DIR/Dev/algo/'

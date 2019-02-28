@@ -91,17 +91,17 @@ bindsym XF86AudioLowerVolume exec --no-startup-id $psst pactl set-sink-volume @D
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'Brightness up (+10)'"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'Brightness down (-10)'"
+bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 10; notify-send 'Brightness up (+10)'"
+bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 10; notify-send 'Brightness down (-10)'"
 
 # Touchpad controls
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play
+bindsym XF86AudioPause exec --no-startup-id playerctl pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 ### Screenshot
 
@@ -176,10 +176,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h;exec notify-send 'Tile horizontally'
+bindsym $mod+h split h; exec --no-startup-id notify-send 'Tile horizontally'
 
 # split in vertical orientation
-bindsym $mod+v split v;exec notify-send 'Tile vertically'
+bindsym $mod+v split v; exec --no-startup-id notify-send 'Tile vertically'
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -190,7 +190,10 @@ bindsym $mod+Control+z layout tabbed
 bindsym $mod+Control+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Control+f floating toggle
+# Allow the use of the mouse when floating mode is enable by setting the
+# border to normal
+bindsym $mod+Control+f floating toggle; border normal
+bindsym $mod+Control+g border 1pixel; floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle

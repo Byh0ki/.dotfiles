@@ -5,13 +5,13 @@ lock_script="$HOME/.config/i3utils/i3lock/lock_vanilla.sh"
 pause()
 {
     killall -SIGUSR1 dunst # pause
-    killall compton
+#   killall compton
 }
 
 resume()
 {
     killall -SIGUSR2 dunst # resume
-    compton -b
+ #  compton -b
 }
 
 lock()

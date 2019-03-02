@@ -68,6 +68,7 @@ ZSH_CUSTOM=~/.zshCustom
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh

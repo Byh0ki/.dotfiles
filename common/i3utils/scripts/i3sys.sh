@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
 
+# If you want to lock before sleep, please check the README.MD
+
 lock_script="$HOME/.config/i3utils/i3lock/lock_vanilla.sh"
 
 pause()
 {
     killall -SIGUSR1 dunst # pause
-#   killall compton
+    # killall compton
 }
 
 resume()
 {
     killall -SIGUSR2 dunst # resume
- #  compton -b
+    # compton -b
 }
 
 lock()
@@ -21,6 +23,8 @@ lock()
     resume
 }
 
+# This function is only usefull if your i3lock is called without the '-n'
+# option which make i3lock a blocking call
 sleeep()
 {
     pause
@@ -35,6 +39,7 @@ sleeep()
     resume
 }
 
+# No arg -> lock
 if [ -z "$1" ]; then
     lock
 else
@@ -46,10 +51,10 @@ else
             i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'
             ;;
         suspend)
-            sleeep
+            systemctl suspend
             ;;
         hibernate)
-            sleeep hibernate
+            systemctl hibernate
             ;;
         reboot)
             i3-nagbar -t warning -m 'You pressed the reboot shortcut. Do you really want to reboot ?' -b 'Yes, reboot' 'systemctl reboot'

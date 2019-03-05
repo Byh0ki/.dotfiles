@@ -1,0 +1,13 @@
+[Unit]
+Description=Suspend
+Before=sleep.target
+
+[Service]
+User=%I
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/home/%I/.config/i3utils/scripts/i3sys.sh
+ExecStartPost=/usr/bin/sleep 2
+
+[Install]
+WantedBy=sleep.target

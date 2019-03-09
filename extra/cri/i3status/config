@@ -4,8 +4,8 @@ general {
 	interval = 1
 }
 
-order += "ipv6"
-order += "disk /home"
+#order += "ipv6"
+order += "disk /"
 # order += "wireless wlan0"
 order += "ethernet br_cri_lab"
 # order += "battery 0"
@@ -62,6 +62,6 @@ cpu_temperature 0 {
        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input/"
 }
 
-disk "/home" {
-       format = "/home: %free"
+disk "/" {
+       format = "/: %free"
 }

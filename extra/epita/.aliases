@@ -27,6 +27,7 @@ alias wcpp='cd $AFS_DIR/Dev/workshop_cpp/'
 alias bis='cd $AFS_DIR/Dev/BigNum/murrig_s-libbistro/'
 alias logo='cd $AFS_DIR/Dev/logomatic/murrig_s-logo/'
 alias tiger='cd $AFS_DIR/Dev/tc/murrig_s-tc/'
+alias asql='cd $AFS_DIR/Dev/asql/'
 
 # Alias Git
 alias gc='git commit -v'

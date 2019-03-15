@@ -41,6 +41,17 @@ backup()
     fi
 }
 
+backup_sys()
+{
+    # $1 : dst dir
+    # $2 : filename
+    # $3 : backup path
+    path="$1/$2"
+    if [[ -f "$path" || -d "$path" ]]; then             # File or dir already exist
+        sudo mv "$path" "$3/$2.old"
+    fi
+}
+
 create_symlinks()
 {
     # $1 : dst dir
@@ -57,6 +68,21 @@ create_symlinks()
         ln -s "$elt_path" "$1/$elt"                     # Create the final symlink
         echo "ln -s $elt_path $1/$elt"
     done
+}
+
+copy_sys_dot()
+{
+    # $1 : dst dir
+    # $2 : dotfile
+    # $3 : pick file from the extra folder
+    backup_sys "$1" "$2" "$dst_dir"                     # Backup
+    if [ ! -z "$3" ] && [[ -f "extra/$3/$2" || -d "extra/$3/$2" ]]; then
+        elt_path="$PWD/extra/$3/$2"
+    else
+        elt_path="$PWD/common/$2"
+    fi
+    sudo cp "$elt_path" "$1/$2"                         # Cp the file
+    echo "sudo cp $elt_path $1/$2"
 }
 
 ## Script
@@ -82,11 +108,7 @@ create_symlinks "$dst" "$dot_list_home" "$dst/$bak" "$extra"
 create_symlinks "$dst/.config" "$dot_list_conf" "$dst/$bak" "$extra"
 
 if [ ! -z $sleep_hook ]; then
-    systemd_path="/etc/systemd/system"
-    if [ -f "$systemd_path"/suspend@.service ]; then
-        sudo mv "$systemd_path"/suspend@.service "$systemd_path"/suspend@.service.old
-    fi
-    sudo cp common/suspend@.service /etc/systemd/system/suspend@.service
+    copy_sys_dot "/etc/systemd/system" "suspend@.service" "$extra"
     sudo systemctl enable suspend@$USER.service
 fi
 

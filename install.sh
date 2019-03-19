@@ -26,6 +26,13 @@ create_dirs()
     mkdir -p "$1/.config"
 }
 
+contain()
+{
+    # $1 : list
+    # $2 : elt to match
+    [[ "$1" =~ (^|[[:space:]])"$2"($|[[:space:]]) ]]
+}
+
 backup()
 {
     # $1 : dst dir
@@ -102,6 +109,10 @@ while getopts hb:e:d:s option; do
         s) sleep_hook=true;;
     esac
 done
+
+if [ ! -z $extra ]; then
+    source $PWD/extra/$extra/.extra_vars
+fi
 
 create_dirs "$dst"
 create_symlinks "$dst" "$dot_list_home" "$dst/$bak" "$extra"

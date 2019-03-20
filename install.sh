@@ -1,5 +1,17 @@
 #!/bin/bash
 
+## Get dotfiles real path
+
+SOURCE="${BASH_SOURCE[0]}"
+# resolve $SOURCE until the file is no longer a symlink
+while [ -h "$SOURCE" ]; do
+    dotfiles_path="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+    SOURCE="$(readlink "$SOURCE")"
+    # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+dotfiles_path="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+
 ## Variables declarations
 
 # You should only edit theses var if you want to add a new dotfile
@@ -68,9 +80,9 @@ create_symlinks()
     for elt in $2; do
         backup "$1" "$elt" "$3"                         # Backup
         if [ ! -z "$4" ] && [[ -f "extra/$4/$elt" || -d "extra/$4/$elt" ]]; then
-            elt_path="$PWD/extra/$4/$elt"
+            elt_path="$dotfiles_path/extra/$4/$elt"
         else
-            elt_path="$PWD/common/$elt"
+            elt_path="$dotfiles_path/common/$elt"
         fi
         ln -s "$elt_path" "$1/$elt"                     # Create the final symlink
         echo "ln -s $elt_path $1/$elt"
@@ -84,9 +96,9 @@ copy_sys_dot()
     # $3 : pick file from the extra folder
     backup_sys "$1" "$2" "$dst_dir"                     # Backup
     if [ ! -z "$3" ] && [[ -f "extra/$3/$2" || -d "extra/$3/$2" ]]; then
-        elt_path="$PWD/extra/$3/$2"
+        elt_path="$dotfiles_path/extra/$3/$2"
     else
-        elt_path="$PWD/common/$2"
+        elt_path="$dotfiles_path/common/$2"
     fi
     sudo cp "$elt_path" "$1/$2"                         # Cp the file
     echo "sudo cp $elt_path $1/$2"
@@ -96,8 +108,8 @@ copy_sys_dot()
 
 # If the repo is not in $HOME/.config/.dotfiles
 # You can uncomment theses lines to edit the .env file
-# if [ -f $PWD/common/.env ]; then
-#     sed -i 's#DOT_PATH=.*#DOT_PATH='"$PWD"'#g' $PWD/common/.env
+# if [ -f $dotfiles_path/common/.env ]; then
+#     sed -i 's#DOT_PATH=.*#DOT_PATH='"$dotfiles_path"'#g' $dotfiles_path/common/.env
 # fi
 
 while getopts hb:e:d:s option; do
@@ -110,8 +122,14 @@ while getopts hb:e:d:s option; do
     esac
 done
 
-if [ ! -z $extra ]; then
-    source $PWD/extra/$extra/.extra_vars
+if [ ! -z "$extra" ]; then
+    if [ ! -d "$dotfiles_path/etra/$extra" ]; then
+        echo "This extra directory doesn't exist."
+        exit 2
+    fi
+    if [ -f "$dotfiles_path/extra/$extra/.extra_vars" ]; then
+        source $dotfiles_path/extra/$extra/.extra_vars
+    fi
 fi
 
 create_dirs "$dst"

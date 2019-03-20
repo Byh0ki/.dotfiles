@@ -51,10 +51,10 @@ backup()
     # $2 : filename
     # $3 : backup path
     path="$1/$2"
-    if [[ -f "$path" || -d "$path" ]]; then             # File or dir already exist
-        if [ -L "$path" ]; then                         # Is a symlink
+    if [[ -f "$path" || -d "$path" ]]; then                 # File or dir already exist
+        if [ -L "$path" ]; then                             # Is a symlink
             rm "$path"
-        else                                            # Is a regular file
+        else                                                # Is a regular file
             mv "$path" "$3/$2.old"
         fi
     fi
@@ -66,7 +66,7 @@ backup_sys()
     # $2 : filename
     # $3 : backup path
     path="$1/$2"
-    if [[ -f "$path" || -d "$path" ]]; then             # File or dir already exist
+    if [[ -f "$path" || -d "$path" ]]; then                 # File or dir already exist
         sudo mv "$path" "$3/$2.old"
     fi
 }
@@ -78,14 +78,16 @@ create_symlinks()
     # $3 : backup path
     # $4 : pick file from the extra folder
     for elt in $2; do
-        backup "$1" "$elt" "$3"                         # Backup
-        if [ ! -z "$4" ] && [[ -f "extra/$4/$elt" || -d "extra/$4/$elt" ]]; then
-            elt_path="$dotfiles_path/extra/$4/$elt"
-        else
-            elt_path="$dotfiles_path/common/$elt"
+        if [ ! $(contain "$exclude_extra" "$elt") ]; then
+            backup "$1" "$elt" "$3"                         # Backup
+            if [ ! -z "$4" ] && [[ -f "$dotfiles_path/extra/$4/$elt" || -d "$dotfiles_path/extra/$4/$elt" ]]; then
+                elt_path="$dotfiles_path/extra/$4/$elt"
+            else
+                elt_path="$dotfiles_path/common/$elt"
+            fi
+            ln -s "$elt_path" "$1/$elt"                     # Create the final symlink
+            echo "ln -s $elt_path $1/$elt"
         fi
-        ln -s "$elt_path" "$1/$elt"                     # Create the final symlink
-        echo "ln -s $elt_path $1/$elt"
     done
 }
 
@@ -94,14 +96,16 @@ copy_sys_dot()
     # $1 : dst dir
     # $2 : dotfile
     # $3 : pick file from the extra folder
-    backup_sys "$1" "$2" "$dst_dir"                     # Backup
-    if [ ! -z "$3" ] && [[ -f "extra/$3/$2" || -d "extra/$3/$2" ]]; then
-        elt_path="$dotfiles_path/extra/$3/$2"
-    else
-        elt_path="$dotfiles_path/common/$2"
+    if [ ! $(contain "$exclude_extra" "$elt") ]; then
+        backup_sys "$1" "$2" "$dst_dir"                     # Backup
+        if [ ! -z "$3" ] && [[ -f "extra/$3/$2" || -d "extra/$3/$2" ]]; then
+            elt_path="$dotfiles_path/extra/$3/$2"
+        else
+            elt_path="$dotfiles_path/common/$2"
+        fi
+        sudo cp "$elt_path" "$1/$2"                         # Cp the file
+        echo "sudo cp $elt_path $1/$2"
     fi
-    sudo cp "$elt_path" "$1/$2"                         # Cp the file
-    echo "sudo cp $elt_path $1/$2"
 }
 
 ## Script
@@ -118,12 +122,12 @@ while getopts hb:e:d:s option; do
         b) bak=${OPTARG};;
         e) extra=${OPTARG};;
         d) dst=${OPTARG};;
-        s) sleep_hook=true;;
+        s) sleep_hook=1;;
     esac
 done
 
 if [ ! -z "$extra" ]; then
-    if [ ! -d "$dotfiles_path/etra/$extra" ]; then
+    if [ ! -d "$dotfiles_path/extra/$extra" ]; then
         echo "This extra directory doesn't exist."
         exit 2
     fi
@@ -132,9 +136,16 @@ if [ ! -z "$extra" ]; then
     fi
 fi
 
+echo "Creating directories if needed..."
 create_dirs "$dst"
+echo "Creating symlinks..."
 create_symlinks "$dst" "$dot_list_home" "$dst/$bak" "$extra"
 create_symlinks "$dst/.config" "$dot_list_conf" "$dst/$bak" "$extra"
+if [[ ! -z "$include_extra_home" || ! -z "$include_extra_conf" ]]; then
+    echo "Creating symlink for extra dir..."
+    create_symlinks "$dst" "$include_extra_home" "$dst/$bak" "$extra"
+    create_symlinks "$dst/.config" "$include_extra_conf" "$dst/$bak" "$extra"
+fi
 
 if [ ! -z $sleep_hook ]; then
     copy_sys_dot "/etc/systemd/system" "suspend@.service" "$extra"

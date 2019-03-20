@@ -20,6 +20,7 @@ dot_list_conf="dunst compton.conf gtk-3.0 i3 i3utils i3status neofetch wallpaper
 
 # Internal script vars
 bak=".bak"
+clean_bak="$HOME/.clean"
 dst="$HOME"
 help_msg="./install.sh [-h] [-s] [-b backup dir] [-e extra_dir] [-d dst_dir]
 
@@ -71,6 +72,30 @@ backup_sys()
     fi
 }
 
+clean()
+{
+    # $1 : dst dir
+    # $2 : list of dotfiles
+    # $3 : backup path
+    for elt in $2; do
+        backup "$1" "$elt" "$3"
+    done
+}
+
+clean_dots()
+{
+    mkdir -p "$3"
+    clean $1 "$dot_list_home" "$3"
+    clean $1 "$dot_list_conf" "$3"
+    # Ask the user if he is sure to delete the file
+    ls "$3"
+    read -p "Are you sure? (Y|n)" -n 1 -r
+    echo    # (optional) move to a new line
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
+    fi
+}
+
 create_symlinks()
 {
     # $1 : dst dir
@@ -116,13 +141,14 @@ copy_sys_dot()
 #     sed -i 's#DOT_PATH=.*#DOT_PATH='"$dotfiles_path"'#g' $dotfiles_path/common/.env
 # fi
 
-while getopts hb:e:d:s option; do
+while getopts hb:e:d:sc option; do
     case "${option}" in
         h) echo -e "$help_msg"; exit;;
         b) bak=${OPTARG};;
         e) extra=${OPTARG};;
         d) dst=${OPTARG};;
         s) sleep_hook=1;;
+        c) clean_hook=1;;
     esac
 done
 

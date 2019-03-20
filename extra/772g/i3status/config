@@ -1,0 +1,72 @@
+general {
+	output_format = "i3bar"
+	colors = true
+	interval = 1
+}
+
+order += "ipv6"
+order += "disk /home"
+order += "wireless wlp13s0"
+order += "ethernet enp0s31f6"
+order += "battery 0"
+order += "cpu_temperature 0"
+order += "volume master"
+order += "cpu_usage"
+#order += "load"
+order += "tztime local"
+
+volume master {
+	device = "default"
+	mixer = "Master"
+	mixer_idx = 0
+	format = "♪: %volume"
+	format_muted = "♪: muted (%volume)"
+}
+
+wireless wlp13s0 {
+       format_up = "W: (%quality at %essid, %bitrate) %ip"
+       format_down = "W: down"
+}
+
+ethernet enp0s31f6 {
+       # if you use %speed, i3status requires the cap_net_admin capability
+       format_up = "E: %ip (%speed)"
+       format_down = "E: down"
+}
+
+battery 0 {
+       format = "%status %percentage %remaining %emptytime"
+       format_down = "No battery"
+       status_chr = "⚡ CHR"
+       status_bat = "🔋 BAT"
+       status_unk = "? UNK"
+       status_full = "☻ FULL"
+       path = "/sys/class/power_supply/BAT%d/uevent"
+       low_threshold = 10
+}
+
+path_exists VPN {
+       # path exists when a VPN tunnel launched by nmcli/nm-applet is active
+       path = "/proc/sys/net/ipv4/conf/tun0"
+}
+
+tztime local {
+       format = "%d/%m/%Y %H:%M:%S"
+}
+
+cpu_usage {
+			format = "CPU: %usage"
+}
+
+load {
+       format = "%1min"
+}
+
+cpu_temperature 0 {
+       format = "T: %degrees °C"
+       path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input/"
+}
+
+disk "/home" {
+       format = "/home: %free"
+}

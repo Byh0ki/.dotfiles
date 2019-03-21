@@ -22,15 +22,19 @@ dot_list_conf="dunst compton.conf gtk-3.0 i3 i3utils i3status neofetch wallpaper
 bak=".bak"
 clean_bak="$HOME/.clean"
 dst="$HOME"
-help_msg="./install.sh [-h] [-s] [-b backup dir] [-e extra_dir] [-d dst_dir]
-
-[-h] display this help message
-[-s] activate the hook for suspend /!\\ root access needed /!\\
-[-b] change backup directory
-[-e] the script will prioritize a file from the extra_dir if it exist
-[-d] change the default destination directory for the symlinks"
 
 ## Functions declarations
+
+usage()
+{
+    echo -e "./install.sh   [-h] [-s] [-b backup dir] [-e extra_dir] [-d dst_dir]"
+    echo
+    echo -e "               [-h] display this help message"
+    echo -e "               [-s] activate the hook for suspend /!\\ root access needed /!\\"
+    echo -e "               [-b] change backup directory"
+    echo -e "               [-e] the script will prioritize a file from the extra_dir if it exist"
+    echo -e "               [-d] change the default destination directory for the symlinks"
+}
 
 create_dirs()
 {
@@ -143,12 +147,13 @@ copy_sys_dot()
 
 while getopts hb:e:d:sc option; do
     case "${option}" in
-        h) echo -e "$help_msg"; exit;;
+        h) usage; exit 0;;
         b) bak=${OPTARG};;
         e) extra=${OPTARG};;
         d) dst=${OPTARG};;
         s) sleep_hook=1;;
         c) clean_hook=1;;
+        *) usage; exit 1;;
     esac
 done
 
@@ -160,6 +165,11 @@ if [ ! -z "$extra" ]; then
     if [ -f "$dotfiles_path/extra/$extra/.extra_vars" ]; then
         source $dotfiles_path/extra/$extra/.extra_vars
     fi
+fi
+
+if [ ! -z $clean_hook ]; then
+    clean_dots
+    exit 0
 fi
 
 echo "Creating directories if needed..."

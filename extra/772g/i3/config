@@ -10,9 +10,15 @@ font pango:monospace 8
 
 set $mod Mod4
 set $wallpaper ~/.config/wallpapers/frost.png
-set $sys ~/.config/i3utils/scripts/i3sys.sh
 set $volMod 2
 set $screenpath ~/Pictures/Screenshots/
+
+# Scripts
+
+set $sys ~/.config/i3utils/scripts/i3sys.sh
+set $layout ~/.config/i3utils/scripts/layout.sh
+set $sound ~/.config/i3utils/scripts/soundUp.sh
+set $screenshot ~/.config/i3utils/scripts/screenshot.sh
 
 # Colors
 set $base00 #151515
@@ -77,10 +83,10 @@ bindsym $mod+l exec --no-startup-id $sys lock
 bindsym $mod+x exec keepassxc
 bindsym $mod+p exec pavucontrol -t 3
 bindsym $mod+e exec nautilus
-bindsym $mod+Tab exec --no-startup-id ~/.config/i3utils/scripts/layout.sh
+bindsym $mod+Tab exec --no-startup-id $layout
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3utils/scripts/soundUp.sh $volMod
+bindsym XF86AudioRaiseVolume exec --no-startup-id $sound $volMod
 bindsym XF86AudioLowerVolume exec --no-startup-id $psst pactl set-sink-volume @DEFAULT_SINK@ -$volMod% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
@@ -100,10 +106,10 @@ bindsym XF86AudioPrev exec playerctl previous
 ### Screenshot
 
 # Print screen focused window
-bindsym $mod+Print exec --no-startup-id ~/.config/i3utils/scripts/screenshot.sh -u $screenpath
+bindsym $mod+Print exec --no-startup-id $screenshot -u $screenpath
 
 # Print screen entire view
-bindsym Print exec --no-startup-id ~/.config/i3utils/scripts/screenshot.sh -f $screenpath
+bindsym Print exec --no-startup-id $screenshot -f $screenpath
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border

@@ -76,7 +76,7 @@ backup_sys()
     fi
 }
 
-clean()
+clean_list()
 {
     # $1 : dst dir
     # $2 : list of dotfiles
@@ -88,15 +88,26 @@ clean()
 
 clean_dots()
 {
-    mkdir -p "$3"
-    clean $1 "$dot_list_home" "$3"
-    clean $1 "$dot_list_conf" "$3"
-    # Ask the user if he is sure to delete the file
-    ls "$3"
-    read -p "Are you sure? (Y|n)" -n 1 -r
-    echo    # (optional) move to a new line
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
+    # $1 : backup folder before delete
+    mkdir -p "$1"
+    clean_list "$dst" "$dot_list_home" "$1"
+    clean_list "$dst/.config" "$dot_list_conf" "$1"
+    if [[ ! -z "$include_extra_home" || ! -z "$include_extra_conf" ]]; then
+        echo "Cleaning files from extra dir..."
+        clean_list "$dst" "$include_extra_home" "$1"
+        cleab_list "$dst/.config" "$include_extra_conf" "$1"
+    fi
+    if [ "$(ls -A "$1" | wc -l)" -ne 0 ]; then
+        echo "This are the list of files that will be deleted :"
+        ls --color=auto -A "$1"
+        # Ask the user if he is sure to delete the file
+        read -p "Are you sure? [Y|n] " -r
+        if [[ "$REPLY" =~ ^[Yy]$ ]] || [[ -z $REPLY ]]; then
+            echo "rm -rf' $1"
+            rm -rf "$1"
+        fi
+    else
+        echo "Nothing to clean."
     fi
 }
 
@@ -125,8 +136,8 @@ copy_sys_dot()
     # $1 : dst dir
     # $2 : dotfile
     # $3 : pick file from the extra folder
-    if [ ! $(contain "$exclude_extra" "$elt") ]; then
-        backup_sys "$1" "$2" "$dst_dir"                     # Backup
+    if [ ! $(contain "$exclude_extra" "$2") ]; then
+        backup_sys "$1" "$2" "$1"                     # Backup
         if [ ! -z "$3" ] && [[ -f "extra/$3/$2" || -d "extra/$3/$2" ]]; then
             elt_path="$dotfiles_path/extra/$3/$2"
         else
@@ -168,7 +179,7 @@ if [ ! -z "$extra" ]; then
 fi
 
 if [ ! -z $clean_hook ]; then
-    clean_dots
+    clean_dots "$clean_bak"
     exit 0
 fi
 

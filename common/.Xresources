@@ -99,6 +99,7 @@ XTerm*selectToClipboard:            true
 ! URxvt*font:                       xft:DejaVu Sans Mono for Powerline:size=10
 ! URxvt.bold.font:                  -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
 
+URxvt*termName:                     rxvt-unicode-256color
 ! True transparency
 URxvt.depth:                        32
 URxvt.background:                   [95]base00

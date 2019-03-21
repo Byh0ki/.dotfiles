@@ -104,3 +104,6 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 
 source ~/.env
 source ~/.aliases
+# Plugins settings
+
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=8

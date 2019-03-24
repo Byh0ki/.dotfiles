@@ -73,7 +73,7 @@ get_progress_bar() {
     local percent="$1"
     local max_percent=${2:-100}
     local divisor=${3:-5}
-    local progress=$((($percent > $max_percent ? $max_percent : $percent) / $divisor))
+    local progress=$(((percent > max_percent ? max_percent : percent) / divisor))
 
     printf '█%.0s' $(eval echo "{1..$progress}")
 }
@@ -94,7 +94,7 @@ notify_volume() {
     else
         sink="$(getdefaultsinkname)"
     fi
-    local vol="$(getdefaultsinkvol $sink)"
+    local vol="$(getdefaultsinkvol "$sink")"
     local icon="$(get_volume_icon "$vol")"
     local text="Volume ${vol}% $(get_progress_bar "$vol")"
 

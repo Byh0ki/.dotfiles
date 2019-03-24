@@ -15,7 +15,7 @@ dotfiles_path="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 ## Variables declarations
 
 # You should only edit theses var if you want to add a new dotfile
-dot_list_home=".env .aliases .bashrc .gitconfig .gitignore .gtkrc-2.0 .vimrc .xinitrc .Xresources .zshCustom .zshrc"
+dot_list_home=".profile .bash_profile .zprofile .aliases .bashrc .gitconfig .gitignore .gtkrc-2.0 .vimrc .xinitrc .Xresources .zshCustom .zshrc"
 dot_list_conf="dunst compton.conf gtk-3.0 i3 i3utils i3status neofetch wallpapers"
 
 # Internal script vars

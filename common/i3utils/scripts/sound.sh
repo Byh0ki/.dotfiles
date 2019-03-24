@@ -60,6 +60,8 @@ get_volume_icon() {
     echo "${icon}"
 }
 
+# Thanks to git@github.com:hastinbe/i3-volume.git for theses functions :
+
 # Generates a progress bar for the provided value.
 #
 # Arguments:

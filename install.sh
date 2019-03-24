@@ -27,7 +27,7 @@ dst="$HOME"
 
 usage()
 {
-    echo -e "./install.sh   [-h] [-s] [-b backup dir] [-e extra_dir] [-d dst_dir]"
+    echo -e "./$(basename $0)   [-h] [-s] [-b backup dir] [-e extra_dir] [-d dst_dir]"
     echo
     echo -e "               [-h] display this help message"
     echo -e "               [-s] activate the hook for suspend /!\\ root access needed /!\\"

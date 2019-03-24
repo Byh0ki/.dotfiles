@@ -17,7 +17,7 @@ set $screenpath ~/Pictures/Screenshots/
 
 set $sys ~/.config/i3utils/scripts/i3sys.sh
 set $layout ~/.config/i3utils/scripts/layout.sh
-set $sound ~/.config/i3utils/scripts/soundUp.sh
+set $sound ~/.config/i3utils/scripts/sound.sh
 set $screenshot ~/.config/i3utils/scripts/screenshot.sh
 
 # Colors
@@ -86,9 +86,9 @@ bindsym $mod+e exec nautilus
 bindsym $mod+Tab exec --no-startup-id $layout
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id $sound $volMod
-bindsym XF86AudioLowerVolume exec --no-startup-id $psst pactl set-sink-volume @DEFAULT_SINK@ -$volMod% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id $sound up $volMod
+bindsym XF86AudioLowerVolume exec --no-startup-id $sound down $volMod
+bindsym XF86AudioMute exec --no-startup-id $sound mute
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'Brightness up (+10)'"

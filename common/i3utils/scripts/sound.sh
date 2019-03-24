@@ -74,7 +74,6 @@ get_progress_bar() {
     local max_percent=${2:-100}
     local divisor=${3:-5}
     local progress=$((($percent > $max_percent ? $max_percent : $percent) / $divisor))
-    echo $progress
 
     printf '█%.0s' $(eval echo "{1..$progress}")
 }
@@ -124,11 +123,11 @@ case "$1" in
     up)
         pactl set-sink-mute @DEFAULT_SINK@ 0
         cur_vol="$(getdefaultsinkvol "$default_sink_name")"
-        let "new_vol="$cur_vol" + "$vol_mod""
+        ((new_vol="$cur_vol" + "$vol_mod"))
         if [ "$new_vol" -le "$max_vol" ]; then
             pactl set-sink-volume @DEFAULT_SINK@ +"$vol_mod"%
         else
-            let "new_vol_mod="$max_vol" - "$cur_vol""
+            ((new_vol_mod="$max_vol" - "$cur_vol"))
             if [ "$new_vol_mod" -gt 0 ]; then
                 pactl set-sink-volume @DEFAULT_SINK@ +"$new_vol_mod"%
             fi

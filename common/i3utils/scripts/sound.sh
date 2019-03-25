@@ -77,7 +77,9 @@ get_progress_bar() {
     local divisor=${3:-5}
     local progress=$(((percent > max_percent ? max_percent : percent) / divisor))
 
-    printf '█%.0s' $(eval echo "{1..$progress}")
+    if [ "$percent" -ge "$divisor" ]; then
+        printf '█%.0s' $(eval echo "{1..$progress}")
+    fi
 }
 
 # Display a notification indicating the volume is muted.
@@ -97,6 +99,11 @@ notify_volume() {
         sink="$(getdefaultsinkname)"
     fi
     local vol="$(getdefaultsinkvol "$sink")"
+    if [ "$vol" -lt 10 ]; then
+        vol="  $vol"
+    elif [ "$vol" -lt 100 ]; then
+        vol=" $vol"
+    fi
     local icon="$(get_volume_icon "$vol")"
     local text="Volume ${vol}% $(get_progress_bar "$vol")"
 

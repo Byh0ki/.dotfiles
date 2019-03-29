@@ -106,7 +106,7 @@ notify_volume() {
         padding=" "
     fi
     local icon="$(get_volume_icon "$vol")"
-    local text="Volume ${vol}% $(get_progress_bar "$padding$vol")"
+    local text="Volume $padding${vol}% $(get_progress_bar "$vol")"
 
     if dunstify_available; then
         dunstify -i "$icon" -t "$expire" -h int:value:"$vol" -h string:synchronous:volume "$text" -r 1000

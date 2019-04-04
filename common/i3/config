@@ -187,6 +187,9 @@ bindsym $mod+h split h; exec --no-startup-id notify-send 'Tile horizontally'
 # split in vertical orientation
 bindsym $mod+v split v; exec --no-startup-id notify-send 'Tile vertically'
 
+# Toggle between splitv and splith
+bindsym $mod+b layout toggle split
+
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 

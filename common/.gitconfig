@@ -7,3 +7,5 @@
 	default = simple
 [pull]
         rebase = true
+[commit]
+        verbose = true

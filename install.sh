@@ -95,7 +95,7 @@ clean_dots()
     if [[ ! -z "$include_extra_home" || ! -z "$include_extra_conf" ]]; then
         echo "Cleaning files from extra dir..."
         clean_list "$dst" "$include_extra_home" "$1"
-        cleab_list "$dst/.config" "$include_extra_conf" "$1"
+        clean_list "$dst/.config" "$include_extra_conf" "$1"
     fi
     if [ "$(ls -A "$1" | wc -l)" -ne 0 ]; then
         echo "This are the list of files that will be deleted :"

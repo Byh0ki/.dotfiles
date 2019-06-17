@@ -60,7 +60,7 @@ get_volume_icon() {
     echo "${icon}"
 }
 
-# Thanks to git@github.com:hastinbe/i3-volume.git for theses functions :
+# Thanks to git@github.com:hastinbe/i3-volume.git for these functions :
 
 # Generates a progress bar for the provided value.
 #
@@ -78,6 +78,7 @@ get_progress_bar() {
     local progress=$(((percent > max_percent ? max_percent : percent) / divisor))
 
     if [ "$percent" -ge "$divisor" ]; then
+        # shellcheck disable=SC2046
         printf '█%.0s' $(eval echo "{1..$progress}")
     fi
 }
@@ -93,20 +94,23 @@ notify_muted() {
 
 # Display a notification indicating the current volume.
 notify_volume() {
+    local vol
+    local padding
+    local icon
+    local text
     if [ -n "$1" ]; then
         sink="$1"
     else
         sink="$(getdefaultsinkname)"
     fi
-    local vol="$(getdefaultsinkvol "$sink")"
-    local padding=""
+    vol="$(getdefaultsinkvol "$sink")"
     if [ "$vol" -lt 10 ]; then
         padding="  "
     elif [ "$vol" -lt 100 ]; then
         padding=" "
     fi
-    local icon="$(get_volume_icon "$vol")"
-    local text="Volume $padding${vol}% $(get_progress_bar "$vol")"
+    icon="$(get_volume_icon "$vol")"
+    text="Volume $padding${vol}% $(get_progress_bar "$vol")"
 
     if dunstify_available; then
         dunstify -i "$icon" -t "$expire" -h int:value:"$vol" -h string:synchronous:volume "$text" -r 1000

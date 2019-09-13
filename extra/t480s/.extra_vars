@@ -1,0 +1,6 @@
+# This is a template to set special variables to include or exclude files from
+# the main script when using an extra folder
+
+include_extra_home=""
+include_extra_conf=""
+exclude_extra=""

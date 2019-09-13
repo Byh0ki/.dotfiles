@@ -1,0 +1,124 @@
+!
+! Comments begin with a "!" character.
+!
+
+#define base00 #0b1c2c
+#define base01 #223b54
+#define base02 #405c79
+#define base03 #627e99
+#define base04 #aabcce
+#define base05 #cbd6e2
+#define base06 #e5ebf1
+#define base07 #f7f9fb
+#define base08 #be5555
+#define base09 #bfbf56
+#define base0A #8bbf56
+#define base0B #56bf8b
+#define base0C #568bbf
+#define base0D #8b56bf
+#define base0E #bf568b
+#define base0F #bf5656
+
+! Cursor
+
+! Xcursor.theme:
+Xcursor.size:                       16
+
+! Font
+
+Xft.dpi:                            120
+Xft.antialias:                      true
+Xft.hinting:                        true
+Xft.rgba:                           rgb
+Xft.autohint:                       false
+Xft.hintstyle:                      hintslight
+Xft.lcdfilter:                      lcddefault
+
+! Colors based on Base16 Harmonic Dark color scheme
+
+!! black dark/light
+*color0:                            base00
+*color8:                            base03
+!! red dark/light
+*color1:                            base08
+*color9:                            base08
+!! green dark/light
+*color2:                            base0B
+*color10:                           base0B
+!! yellow dark/light
+*color3:                            base0A
+*color11:                           base0A
+!! blue dark/light
+*color4:                            base0D
+*color12:                           base0D
+!! magenta dark/light
+*color5:                            base0E
+*color13:                           base0E
+!! cyan dark/light
+*color6:                            base0C
+*color14:                           base0C
+!! white dark/light
+*color7:                            base05
+*color15:                           base07
+
+! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+! use 'shell' template to set these if necessary
+*color16:                           base09
+*color17:                           base0F
+*color18:                           base01
+*color19:                           base02
+*color20:                           base04
+*color21:                           base06
+
+! XTerm
+
+XTerm*background:                   base00
+XTerm*foreground:                   base05
+XTerm*cursorColor:                  base05
+! XTerm*faceName:                   Terminus:style=Regular:size=10
+! XTerm*font:                       -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
+
+XTerm*font:                         terminus-10
+XTerm.termName: 	            xterm-256color
+XTerm*dynamicColors:                true
+XTerm*utf8:                         2
+XTerm*eightBitInput:                true
+XTerm*saveLines:                    1024
+XTerm*scrollKey:                    true
+XTerm*scrollTtyOutput:              false
+XTerm*scrollBar:                    false
+XTerm*rightScrollBar:               true
+XTerm*jumpScroll:                   true
+XTerm*multiScroll:                  true
+XTerm*toolBar:                      false
+XTerm*selectToClipboard:            true
+! Xterm*loginShell: 	            true
+
+! Urxvt
+
+URxvt.font:                         xft:DejaVu Sans Mono:size=10
+! URxvt.bold.font:                  -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
+
+! True transparency
+URxvt.depth:                        32
+URxvt.background:                   [95]base00
+URxvt*scrollBar:                    false
+! URxvt*mouseWheelScrollPage:       false
+URxvt*cursorBlink:                  false
+!URxvt*background:                  base00
+URxvt*foreground:                   base05
+URxvt*saveLines:                    5000
+URxvt*urgentOnBell:                 true
+
+! for 'fake' transparency (without Compton) uncomment the following lines
+! URxvt*inheritPixmap:              true
+! URxvt*transparent:                true
+! URxvt*shading:                    50
+! URxvt*tintColor:                  #245b8f
+! URxvt*blurRadius:                 20
+! URxvt*fading:                     50
+
+! Normal copy-paste keybindings without perls
+! URxvt.iso14755:                   false
+! URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
+! URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard

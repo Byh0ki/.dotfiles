@@ -41,8 +41,9 @@ battery 0 {
     status_bat = "🔋 BAT"
     status_unk = "? UNK"
     status_full = "☻ FULL"
+    threshold_type = percentage
+    low_threshold = 20
     path = "/sys/class/power_supply/BAT%d/uevent"
-    low_threshold = 10
 }
 
 path_exists VPN {

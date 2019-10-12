@@ -84,7 +84,7 @@ for_window [urgent=latest] focus
 
 ### Custom keybind
 
-bindsym $mod+c exec chromium
+bindsym $mod+c exec chromium --force-dark-mode --enable-features=WebUIDarkMode
 bindsym $mod+l exec --no-startup-id $sys lock
 bindsym $mod+x exec keepassxc
 bindsym $mod+p exec pavucontrol -t 3
@@ -396,7 +396,7 @@ bindsym $mod+m bar mode toggle
 ### Startup
 exec --no-startup-id owncloud &
 # exec --no-startup-id volctl &
-exec --no-startup-id nm-applet --no-agent
+# exec --no-startup-id nm-applet --no-agent
 exec --no-startup-id compton -b
 exec --no-startup-id slack &
 # Annoying when watching a video for example

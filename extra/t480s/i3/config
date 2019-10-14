@@ -84,7 +84,7 @@ for_window [urgent=latest] focus
 
 ### Custom keybind
 
-bindsym $mod+c exec chromium
+bindsym $mod+c exec chromium --force-dark-mode --enable-features=WebUIDarkMode
 bindsym $mod+l exec --no-startup-id $sys lock
 bindsym $mod+x exec keepassxc
 bindsym $mod+p exec pavucontrol -t 3

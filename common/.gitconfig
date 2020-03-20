@@ -1,11 +1,19 @@
 [user]
-	name = Sevan Murriguian
-	email = murrig_s@epita.fr
+    name = Sevan Murriguian
+    email = murrig_s@epita.fr
+    signingkey = 0x7178A240378ACF22
 [color]
-	ui = true
+    ui = true
 [push]
-	default = simple
+    default = simple
 [pull]
-        rebase = true
+    rebase = true
 [commit]
-        verbose = true
+    verbose = true
+    gpgsign = true
+[gpg]
+    program = gpg2
+
+; include if currently in the CRI subdirectory
+[includeIf "gitdir:~/Documents/Dev/cri/"]
+    path = ~/.gitconfig_cri

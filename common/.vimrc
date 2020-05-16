@@ -188,6 +188,7 @@ let g:rainbow_active = 1
 autocmd BufWritePre * :%s/\s\+$//e
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
+autocmd FileType yaml setlocal sw=2 indentkeys-=0# indentkeys-=<:>
 " Alternative for match, need to figure out how to make it works properly
 " au BufWinEnter * let w:m2=matchadd('ExtraWhitespace', "/\s\+\%#\@<!$/")
 " au VimEnter * let w:m1=matchadd("OverLength", "/\%79v.\+/")

@@ -8,28 +8,15 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias cd..='cd ..'
 alias md='mkdir -p'
-alias color='$HOME/.config/base16-shell/./colortest'
 alias gdb='gdb -q'
+alias ip='ip -c'
 
+# Vim maniac
 alias :q='exit'
 
 # Alias Path
 alias .dot='cd $DOT_PATH'
 alias lbin='cd ~/.local/bin'
-alias p='cd $HOME/Documents/Dev/p2021'
-alias alg='cd $HOME/Documents/Dev/algo/'
-alias mri='cd $HOME/Documents/Dev/myreadiso/murrig_s-myreadISO/'
-alias mf='cd $HOME/Documents/Dev/myfind/murrig_s-myfind'
-alias mll='cd $HOME/Documents/Dev/malloc/murrig_s-malloc'
-alias f1='cd $HOME/Documents/Dev/f1/murrig_s-formula-one'
-alias ray='cd $HOME/Documents/Dev/raytracer/stanislas.sokolov-raytracer/'
-alias rc='cd $HOME/Documents/Dev/rushc/murrig_s-rush_c/'
-alias 42='cd $HOME/Documents/Dev/42sh/cornet_p-42sh/'
-alias mvs='cd $HOME/Documents/Dev/myvSwitch/murrig_s-myvswitch/'
-alias wcpp='cd $HOME/Documents/Dev/workshop_cpp/'
-alias bis='cd $HOME/Documents/Dev/BigNum/murrig_s-libbistro/'
-alias logo='cd $HOME/Documents/Dev/logomatic/murrig_s-logo/'
-alias tiger='cd $HOME/Documents/Dev/tc/murrig_s-tc/'
 
 # Alias Git
 alias gc='git commit -v'

@@ -1,7 +1,7 @@
 [user]
     name = Sevan Murriguian
     email = murrig_s@epita.fr
-    signingkey = 0x7178A240378ACF22
+    signingkey = 0xe983e2a1f6562f39
 [color]
     ui = true
 [push]

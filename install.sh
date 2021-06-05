@@ -16,7 +16,7 @@ dotfiles_path="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
 # You should only edit theses var if you want to add a new dotfile
 dot_list_home=".profile .bash_profile .zprofile .aliases .bashrc .gitconfig .gitconfig_cri .gitignore .gtkrc-2.0 .vimrc .xinitrc .Xresources .zshCustom .zshrc"
-dot_list_conf="dunst picom.conf gtk-3.0 i3 i3utils i3status neofetch wallpapers"
+dot_list_conf="dunst picom.conf gtk-3.0 i3 i3utils i3status neofetch wallpapers rofi"
 
 # Extra directories
 include_extra_home=""

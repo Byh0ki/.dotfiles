@@ -13,12 +13,13 @@ set $wallpaper ~/.config/wallpapers/frost.png
 set $volMod 2
 set $screenpath ~/Pictures/Screenshots/
 
-# Scripts
+# Scripts / Commands
 
 set $sys ~/.config/i3utils/scripts/i3sys.sh
 set $layout ~/.config/i3utils/scripts/layout.sh
 set $sound ~/.config/i3utils/scripts/sound.sh
 set $screenshot ~/.config/i3utils/scripts/screenshot.sh
+set $picom picom -b --experimental-backends
 
 # Colors
 set $base00 #151515
@@ -54,8 +55,9 @@ set $ws10 "10"
 set $gaps_inner 10
 set $gaps_outer -2
 
-# Modes
+# Modes description
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown
+set $mode_picom Picom: (k) kill, (s) start
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -338,6 +340,13 @@ mode "Resize" {
         bindsym $mod+r mode "default"
 }
 
+mode "$mode_picom" {
+        bindsym k exec --no-startup-id killall picom
+        bindsym s exec --no-startup-id $picom; mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
 # Gaps modes
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
@@ -371,6 +380,7 @@ mode "$mode_gaps_outer" {
 ### Modes bindings
 
 bindsym $mod+Home mode "$mode_system"
+bindsym $mod+o mode "$mode_picom"
 bindsym $mod+r mode "Resize"
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
@@ -403,7 +413,7 @@ bindsym $mod+m bar mode toggle
 exec --no-startup-id owncloud &
 # exec --no-startup-id volctl &
 exec --no-startup-id nm-applet --no-agent
-exec --no-startup-id picom -b --experimental-backends
+exec --no-startup-id $picom
 exec --no-startup-id slack &
 # Annoying when watching a video for example
 # exec --no-startup-id xautolock -time 10 -locker $sys &

@@ -9,6 +9,7 @@ order += "disk /"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery 0"
+order += "memory"
 order += "cpu_temperature 0"
 order += "volume master"
 order += "cpu_usage"
@@ -70,4 +71,11 @@ cpu_temperature 0 {
 
 disk "/" {
     format = "/: %free"
+}
+
+memory {
+    format = "M: %available (%percentage_available) free"
+    # format = "%percentage_used used, %percentage_free free, %percentage_shared shared"
+    threshold_degraded = 10%
+    threshold_critical = 5%
 }

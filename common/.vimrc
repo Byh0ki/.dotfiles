@@ -192,3 +192,11 @@ autocmd FileType yaml setlocal sw=2 indentkeys-=0# indentkeys-=<:>
 " Alternative for match, need to figure out how to make it works properly
 " au BufWinEnter * let w:m2=matchadd('ExtraWhitespace', "/\s\+\%#\@<!$/")
 " au VimEnter * let w:m1=matchadd("OverLength", "/\%79v.\+/")
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()

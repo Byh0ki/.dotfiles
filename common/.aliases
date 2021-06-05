@@ -14,6 +14,14 @@ alias ip='ip -c'
 # Vim maniac
 alias :q='exit'
 
+# Alias editor
+alias v='vim'
+
+# Alias clumsy operator
+alias vi='vim'
+alias bim='vim'
+alias cim='vim'
+
 # Alias Path
 alias .dot='cd $DOT_PATH'
 alias lbin='cd ~/.local/bin'
@@ -28,9 +36,12 @@ alias gpl='git pull'
 alias gsl='git shortlog'
 alias gll='git log --oneline'
 alias gls='git ls-files'
+
+# Alias compilation
 alias gccf='gcc -Wall -Wextra -Werror -pedantic -std=c99'
 alias g++f='g++ -Wall -Wextra -Werror -pedantic -std=c++17'
 
-# Alias Cri
-alias music='PULSE_SERVER=hephaistos firefox'
-alias pavu='PULSE_SERVER=hephaistos pavucontrol'
+# Alias K8s
+alias k='kubectl'
+alias kctx='kubectx'
+alias kns='kubens'
